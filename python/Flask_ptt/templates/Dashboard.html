@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <title>PTT查詢站 </title>
+      <!-- Meta -->
+      <meta charset="utf-8">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+  </head>
+
+  <body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader"> <!---開頭動畫-->
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header"> <!--上面head-->
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-search morphsearch-search" href="#">
+                            <i class="ti-search"></i>
+                        </a>
+                        <a href="">
+                            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                        </a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+            <div class="pcoded-main-container"> <!--身體-->
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <!-- form start -->
+                        
+                        <div class="pcoded-inner-navbar main-menu"> <!--menu內容-->
+                            <form method="POST">
+                            <div class="pcoded-search"></div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">看板</div>
+                                <div style="padding: 0px 16px 20px;">
+                                <select name="ppt" style="border: 1px solid #ddd;height:35px ; width:230px;">
+                                    {% if ptt == 'None' %}
+                                        <option value="None" selected>選擇看板</option>
+                                        <option value="Stock">股票版</option>
+                                        <option value="Gossiping">八卦版</option>
+                                    {% elif ptt == '股票版' %}
+                                        <option value="None" >選擇看板</option>
+                                        <option value="Stock" selected>股票版</option>
+                                        <option value="Gossiping">八卦版</option>
+                                    {% elif ptt == '八卦版' %}
+                                        <option value="None">選擇看板</option>
+                                        <option value="Stock">股票版</option>
+                                        <option value="Gossiping" selected>八卦版</option>
+                                    {% endif %}
+                                </select>
+                                </div>
+                                {% if method == 'POST'%}
+                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">看板</div>
+                                    <div style="padding: 0px 16px 20px;">
+                                    <select name="tag" style="border: 1px solid #ddd;height:35px ; width:230px;">
+                                        <option value="None">查詢標籤</option>>
+                                        {% for ts in post_tag %}
+                                            {% for t in ts %}
+                                                <option value="{{t}}">{{t}}</option>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </select>
+                                    </div>
+                                {% endif %}
+
+                                <div class="pcoded-navigatio-lavel">選擇開始日期:</div>
+                                <div style="padding: 0px 16px 20px;">
+                                <input type='date' , name="date1" value="{{date1}}" required style="border: 1px solid #ddd;height:35px ; width:230px;"></input>
+                                </div>
+                                <div class="pcoded-navigatio-lavel">選擇結束日期:</div>
+                                <div style="padding: 0px 16px 20px;">
+                                <div style="padding-top: 5px;"><input type='date' , name="date2" value="{{date2}}" required style="border: 1px solid #ddd;height:35px ; width:230px;"></input></div>
+                                </div>
+                            <div class="pcoded-navigatio-lavel" >查詢標題 &amp; 作者:</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <div style="padding: 0px 16px 20px;">
+                                    <input type="search" name="title" maxlength="40" style="border: 1px solid #ddd;height:35px ; width:230px;"></input>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="padding: 0px 16px 20px;"> 
+                                <button type="submit" style="border: 1px solid #ddd;height:35px ; width:230px;">送出</button>
+                            </div>
+                        </form>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <!-- card1 start -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card widget-card-1">
+                                                    <div class="card-block-small">
+                                                        <i class="icofont icofont-info-circle bg-c-blue card1-icon"></i>
+                                                        <span class="text-c-blue f-w-600">文章總數</span>
+                                                        <h4>{{post_total}}</h4>
+                                                        <div>
+                                                            <span class="f-left m-t-10 text-muted">
+                                                                <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>{{date1}}&ensp;～&ensp;{{date2}}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- card1 end -->
+                                            <!-- card1 start -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card widget-card-1">
+                                                    <div class="card-block-small">
+                                                        <i class="icofont icofont-ui-messaging bg-c-pink card1-icon"></i>
+                                                        <span class="text-c-pink f-w-600">回文總數</span>
+                                                        <h4>{{push_total}}</h4>
+                                                        <div>
+                                                            <span class="f-left m-t-10 text-muted">
+                                                            &ensp;
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- card1 end -->
+                                            <!-- card1 start -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card widget-card-1">
+                                                    <div class="card-block-small">
+                                                        <i class="icofont icofont-like bg-c-green card1-icon"></i>
+                                                        <span class="text-c-green f-w-600">推推數量</span>
+                                                        <h4>{{good_total}}</h4>
+                                                        <div>
+                                                            <span class="f-left m-t-10 text-muted">
+                                                                &ensp;
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- card1 end -->
+                                            <!-- card1 start -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card widget-card-1">
+                                                    <div class="card-block-small">
+                                                        <i class="icofont icofont-thumbs-down bg-c-yellow card1-icon"></i>
+                                                        <span class="text-c-yellow f-w-600">噓噓數量</span>
+                                                        <h4>{{bad_total}}</h4>
+                                                        <div>
+                                                            <span class="f-left m-t-10 text-muted">
+                                                                &ensp;
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- card1 end -->
+                                            <!-- Statestics Start -->
+                                            <div class="col-md-12 col-xl-8">
+                                                <div class="card">
+                                                        {% if method == 'POST'%}
+                                                        <div class="card-header">
+                                                            <h2>{{ptt}} {% if select_title != '' %}查詢{{select_title}}{% endif %}</h5>
+                                                        </div>
+                                                        <div class="card-block">
+                                                            <div id="statestics-chart" style="height:10px;"></div>
+                                                            <table class="tables" border="1" align="center" style="border: 1px solid #ddd;height:35px;white-space:nowrap;">
+                                                                <thead >
+                                                                    <tr>
+                                                                        {% for c in coulmns %}
+                                                                        <th  style="background-color:rgb(67, 105, 177);color: whitesmoke;text-align: center;">{{ c }}</th>
+                                                                        {% endfor %}
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {% for data in datas %}
+                                                                        <tr style="font-size: 14px;">
+                                                                            {% for d in data %}
+                                                                                {% if 'https' in d|string %}
+                                                                                    <td align="left" class="table_tit">
+                                                                                        <a href="{{ d }}" target="_blank">&ensp;<u>{{ d }}</u>&ensp;</a>
+                                                                                    </td>
+                                                                                {% elif loop.index == 3%}
+                                                                                    <td align="left" class="table_tit">
+                                                                                        &ensp;{{ d }}&ensp;
+                                                                                    </td>
+                                                                                {% elif loop.index == 4%}
+                                                                                    <td align="left" class="table_tit">
+                                                                                        &ensp;{{ d }}&ensp;
+                                                                                    </td>
+                                                                                {% else %}
+                                                                                    <td align="center">
+                                                                                        &ensp;{{ d }}&ensp;
+                                                                                    </td>
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                        </tr>
+                                                                    {% endfor %}
+                                                                </tbody>
+                                                                <tbody></tbody>
+                                                            </table>
+                                                            </div>
+                                                        {% endif %}
+                                                </div>
+                                            </div>
+
+                                            
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="styleSelector">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warning Section Starts -->
+
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+
+<!-- Custom js -->
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/demo-12.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+var $window = $(window);
+var nav = $('.fixed-button');
+    $window.scroll(function(){
+        if ($window.scrollTop() >= 200) {
+         nav.addClass('active');
+     }
+     else {
+         nav.removeClass('active');
+     }
+ });
+</script>
+</body>
+
+</html>

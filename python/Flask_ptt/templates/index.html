@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-tw">
+   <head>
+    <title>PTT查詢站</title>
+   </head>
+   <!-- body -->
+   <body style="background-color: gainsboro;">
+    <p>PTT查詢站</p>
+    <form method="POST">
+    <select name="ppt" style="width: 100px;height: 25px;font-size: 18px;">
+        {% if ptt == 'None' %}
+            <option value="None" selected>選擇看板</option>
+            <option value="Stock">股票版</option>
+            <option value="Gossiping">八卦版</option>
+        {% elif ptt == '股票版' %}
+            <option value="None" >選擇看板</option>
+            <option value="Stock" selected>股票版</option>
+            <option value="Gossiping">八卦版</option>
+        {% elif ptt == '八卦版' %}
+            <option value="None">選擇看板</option>
+            <option value="Stock">股票版</option>
+            <option value="Gossiping" selected>八卦版</option>
+        {% endif %}
+    </select>
+    {% if method == 'POST'%}
+    <select name="tag" style="width: 100px;height: 25px;font-size: 18px;">
+        <option value="None">查詢標籤</option>>
+        {% for ts in post_tag %}
+            {% for t in ts %}
+                <option value="{{t}}">{{t}}</option>>
+            {% endfor %}
+        {% endfor %}
+    </select>
+    {% endif %}
+    <input type='date' , name="date1" value="{{date1}}" required></input>
+    <input type='date' , name="date2" value="{{date2}}" required></input>
+    <input type="search" name="title" maxlength="40" placeholder="查詢標題或作者" style="height:24px;"></input>
+    <button type="submit">送出</button>
+    </form>
+    {% if method == 'POST'%}
+        <table border="1" align="center" style="white-space: nowrap; ">
+            <thead>
+                <tr ><th colspan="9" style="background-color: antiquewhite;">{{ptt}}</th></tr>
+                <tr></tr>
+                    {% for c in coulmns %}
+                    <th>{{ c }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in datas %}
+                    <tr>
+                        {% for d in data %}
+                            {% if 'https' in d|string %}
+                                <td align="left">
+                                    <a href="{{ d }}">{{ d }}</a>>
+                                </td>
+                            {% elif loop.index == 3%}
+                                <td align="left">
+                                    {{ d }}
+                                </td>
+                            {% elif loop.index == 4%}
+                                <td align="left">
+                                    {{ d }}
+                                </td>
+                            {% else %}
+                                <td align="center">
+                                    {{ d }}
+                                </td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tbody></tbody>
+        </table>
+    {% endif %}
+   </body>
+</html>
+
