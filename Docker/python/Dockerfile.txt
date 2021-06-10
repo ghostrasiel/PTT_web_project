@@ -1,0 +1,14 @@
+#!Dockerfile
+FROM python:3
+
+WORKDIR /usr/src/app
+
+ADD ./app /usr/src/app
+COPY requirements.txt /usr/src/app
+RUN pip install -r requirements.txt
+
+EXPOSE 80
+
+CMD ["python" , "./Flask_ptt/app.py"]
+
+

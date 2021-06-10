@@ -1,0 +1,35 @@
+列出磁碟區 TIH0462200A 的資料夾 PATH
+磁碟區序號為 00000056 0C95:ECBF
+C:\USERS\TIBAME_25\DESKTOP\PTT_WEB_PROJECT
+└─Docker
+    ├─python
+    │  └─app
+    │      ├─ETL_ptt
+    │      └─Flask_ptt
+    │          ├─assets
+    │          │  ├─css
+    │          │  │  ├─animate.css
+    │          │  │  │  └─css
+    │          │  │  ├─bootstrap
+    │          │  │  │  └─css
+    │          │  │  └─morris.js
+    │          │  │      └─css
+    │          │  ├─icon
+    │          │  │  ├─icofont
+    │          │  │  │  ├─css
+    │          │  │  │  └─fonts
+    │          │  │  └─themify-icons
+    │          │  │      └─fonts
+    │          │  ├─images
+    │          │  └─js
+    │          │      ├─bootstrap
+    │          │      │  └─js
+    │          │      ├─jquery
+    │          │      ├─jquery-slimscroll
+    │          │      └─modernizr
+    │          ├─model
+    │          │  └─__pycache__
+    │          └─templates
+    └─sql
+        ├─sqldb
+        └─sql_sh

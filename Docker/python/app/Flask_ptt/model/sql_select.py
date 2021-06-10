@@ -1,8 +1,9 @@
 import pymysql
 
-def select_sql(db , date1 ,date2 , tag , title):
-    conninfo = {'host':'localhost' , 'port':3306,'user':'eric' , 'passwd':'123456',
+conninfo = {'host':'db' , 'port':3306,'user':'eric' , 'passwd':'123456',
 'db':'pttdb','charset':'utf8mb4'}
+
+def select_sql(db , date1 ,date2 , tag , title):
     conn = pymysql.connect(**conninfo)
     cursor = conn.cursor()
     if (tag == None) or (tag == 'None'):
@@ -37,8 +38,6 @@ def select_sql(db , date1 ,date2 , tag , title):
     return data , data_total
 
 def select_tag(db):
-    conninfo = {'host':'localhost' , 'port':3306,'user':'eric' , 'passwd':'123456',
-'db':'pttdb','charset':'utf8mb4'}
     conn = pymysql.connect(**conninfo)
     cursor = conn.cursor()
     select =f"""
@@ -50,7 +49,7 @@ def select_tag(db):
     conn.close()
     return data
 
-print(select_sql('Stock', '2021-06-08', '2021-06-08', None , '')[1][0])
-post_total,push_total,good_total ,bad_total = select_sql('Stock', '2021-06-08', '2021-06-08', None , '')[1][0]
-print(post_total)
+# print(select_sql('Stock', '2021-06-09', '2021-06-09', None , '')[0])
+# post_total,push_total,good_total ,bad_total = select_sql('Stock', '2021-06-09', '2021-06-09', None , '')[1][0]
+# print(post_total)
 
