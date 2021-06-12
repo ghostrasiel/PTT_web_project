@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <title>PTT查詢站 </title>
+      <!-- Meta -->
+      <meta charset="utf-8">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+  </head>
+
+  <body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader"> <!---開頭動畫-->
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header"> <!--上面head-->
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-search morphsearch-search" href="/">
+                            <i class="ti-search"></i>
+                        </a>
+                        <a href="/">
+                            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                        </a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+            <div class="pcoded-main-container"> <!--身體-->
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <!-- form start -->
+                        
+                        <div class="pcoded-inner-navbar main-menu" style="padding-top: 30px;"> <!--menu內容-->
+                            <form method="POST">
+                            <div class="pcoded-navigatio-lavel" >系統管理帳號</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <div style="padding: 0px 16px 20px;">
+                                    <input type="text" name="account" maxlength="40" style="border: 1px solid #ddd;height:35px ; width:230px;"></input>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" >系統管理密碼</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <div style="padding: 0px 16px 20px;">
+                                    <input type="password" name="password" maxlength="40" style="border: 1px solid #ddd;height:35px ; width:230px;"></input>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="padding: 0px 16px 20px;"> 
+                                <button type="submit" style="border: 1px solid #ddd;height:35px ; width:230px;">送出</button>
+                                {% if Clearance == 'notpass' %}
+                                    <div style="color: red;">系統帳號密碼輸入錯誤，請重新輸入</div>
+                                {% endif %}
+                            </div>
+                        </form>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    {% if Clearance == '4934981345@@!33' %}
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <!-- card1 start -->
+                                            <div class="col-md-6 col-xl-3" >
+                                                <div class="card widget-card-1" style="width: 300px;">
+                                                    <div class="card-block-small">
+                                                        <i class="icofont icofont-user-suited bg-c-blue card1-icon"></i>
+                                                        <span class="text-c-blue f-w-600"></span>
+                                                        <h4>Hi {{ user }}辛苦了！</h4>
+                                                        <div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- card1 end -->
+                                            <!-- Statestics Start -->
+                                            <div class="col-md-12 col-xl-8">
+                                                <div class="card">
+                                                        
+                                                        <div class="card-header">
+                                                            <h2>系統管理介面</h2>
+                                                        </div>
+                                                        <div class="card-block">
+                                                            <div id="statestics-chart" style="height:10px;"></div>
+                                                            <form method="POST">
+                                                                <input type="submit" value="update_ETL" name="update" style="border: 1px solid #ddd;height:35px ; width:230px;">更新資料庫</input>
+                                                            </form>
+                                                        </div>
+                                                        {% endif %}
+                                                </div>
+                                            </div>
+
+                                            
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="styleSelector">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warning Section Starts -->
+
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+
+<!-- Custom js -->
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/demo-12.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+var $window = $(window);
+var nav = $('.fixed-button');
+    $window.scroll(function(){
+        if ($window.scrollTop() >= 200) {
+         nav.addClass('active');
+     }
+     else {
+         nav.removeClass('active');
+     }
+ });
+</script>
+</body>
+
+</html>

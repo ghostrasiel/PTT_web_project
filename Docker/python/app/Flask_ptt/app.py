@@ -2,9 +2,16 @@ from flask import Flask ,render_template , request
 from model import sql_select
 import datetime
 import os
+import random
+import threading
 
 file = os.path.dirname(os.path.realpath(__file__))
 app = Flask(__name__ , static_url_path='/assets',static_folder=f'{file}/assets')
+
+def ETL_job():
+    os.system(f"python3 '{file}/ETL_ptt/ETL_python.py' ")
+
+
 
 @app.route('/' , methods = ['GET' , 'POST'])
 def dashboard():
@@ -55,6 +62,34 @@ def dashboard():
     return render_template('/Dashboard.html' ,method = method ,coulmns=coulmns , datas = datas ,ptt =ptt,date1 = date1 ,date2=date2
     ,post_tag=post_tag ,post_total=post_total,push_total=push_total,good_total=good_total 
     ,bad_total=bad_total ,select_title = title ) 
+
+@app.route('/root' , methods=['GET','POST'])
+def root():
+    method = request.method
+    if method == 'GET':
+        Clearance =''
+        user = ''
+
+    
+    if method == 'POST':
+        account = request.form.get('account')
+        password = request.form.get('password')
+        if account == 'eric':
+            if password == '123456':
+                Clearance = '4934981345@@!33'
+                
+            else:
+                Clearance = 'notpass'
+        else:
+                Clearance = 'notpass'
+        user = account
+        update = request.form.get('update')
+        if update == "update_ETL":
+            print('start ETL')
+            t = threading.Thread(target=ETL_job())
+            t.start()
+            
+    return render_template('/root.html' , method = method ,Clearance = Clearance,user = user)
 
 if __name__ == '__main__':
     app.run(debug=True , host = '0.0.0.0' , port=5000)

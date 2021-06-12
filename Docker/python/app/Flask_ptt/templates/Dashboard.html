@@ -214,11 +214,11 @@
                                                 <div class="card">
                                                         {% if method == 'POST'%}
                                                         <div class="card-header">
-                                                            <h2>{{ptt}} {% if select_title != '' %}查詢{{select_title}}{% endif %}</h5>
+                                                            <h2>{{ptt}} {% if select_title != '' %}查詢{{select_title}}{% endif %}</h2>
                                                         </div>
                                                         <div class="card-block">
                                                             <div id="statestics-chart" style="height:10px;"></div>
-                                                            <table class="tables" border="1" align="center" style="border: 1px solid #ddd;height:35px;white-space:nowrap;">
+                                                            <table class="tables" border="1" align="left" style="border: 1px solid #ddd;height:35px;white-space:nowrap;">
                                                                 <thead >
                                                                     <tr>
                                                                         {% for c in coulmns %}
@@ -232,7 +232,7 @@
                                                                             {% for d in data %}
                                                                                 {% if 'https' in d|string %}
                                                                                     <td align="left" class="table_tit">
-                                                                                        <a href="{{ d }}" target="_blank">&ensp;<u>{{ d }}</u>&ensp;</a>
+                                                                                        <a href="{{ d }}" target="_blank">&ensp;<u>文章連結</u>&ensp;</a>
                                                                                     </td>
                                                                                 {% elif loop.index == 3%}
                                                                                     <td align="left" class="table_tit">

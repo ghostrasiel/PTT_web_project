@@ -9,6 +9,7 @@ import pymysql
 import sys
 
 file = os.path.dirname(os.path.realpath(__file__)) #mac解決當前路徑問題
+print(file)
 notword_list = []
 conninfo = {'host':'db' , 'port':3306,'user':'eric' , 'passwd':'123456',
 'db':'pttdb','charset':'utf8mb4'}
@@ -66,7 +67,7 @@ try:
             post_id = 0
 
         SQL_list = []
-        for i in range(1): #-----------------爬取頁數------------------------
+        for i in range(3): #-----------------爬取頁數------------------------
             print(i)
             soup = resget(page_url)
             posts =soup.select('div.r-list-container div.r-ent')
