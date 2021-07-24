@@ -11,7 +11,7 @@ import sys
 file = os.path.dirname(os.path.realpath(__file__)) #mac解決當前路徑問題
 print(file)
 notword_list = []
-conninfo = {'host':'db' , 'port':3306,'user':'eric' , 'passwd':'123456',
+conninfo = {'host':'localhost' , 'port':3306,'user':'eric' , 'passwd':'123456',
 'db':'pttdb','charset':'utf8mb4'}
 while True: #連線機制
     try:

@@ -1,6 +1,6 @@
 import pymysql
 
-conninfo = {'host':'db' , 'port':3306,'user':'eric' , 'passwd':'123456',
+conninfo = {'host':'localhost' , 'port':3306,'user':'eric' , 'passwd':'123456',
 'db':'pttdb','charset':'utf8mb4'}
 
 def select_sql(db , date1 ,date2 , tag , title):
