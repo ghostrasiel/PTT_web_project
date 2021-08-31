@@ -8,8 +8,9 @@
 2. 將乾淨資料輸入至mysql   
 3. 撰寫mysql API供網頁查詢  
 4. 撰寫Flask以及css版型  
-5. 撰寫Docker-compose快速安裝環境  
-
+5. 撰寫Docker-compose快速安裝環境
+## 實際執行畫面  
+![image](https://user-images.githubusercontent.com/58453878/131431958-66e38701-dc1a-419a-8f05-b3b73b8e4603.png)
 
 2021/06/30 update   
 更新網站後台功能 , 讓網站管理員可以透過網站後台就更新資料  
