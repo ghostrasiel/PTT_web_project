@@ -1,5 +1,5 @@
-# PTT_web_project
-快速瀏覽PTT文章內容標籤及推噓人數
+# PTT文章快速查詢站
+透過爬取PTT文章,快速整合文章標題,並整理好標籤,瀏覽PTT文章內容標籤及推噓人數,找到在指定日期時想尋找的文章
 ## 專案流程
 <img width="942" alt="截圖 2021-06-06 19 01 05" src="https://user-images.githubusercontent.com/58453878/131379915-b536714b-33a1-43f2-9774-7b82692e72c5.png">
 
